@@ -1,10 +1,10 @@
 import numpy as np
 
-def wind2power(wind, type):
+def wind2power(wind, type = 'high-wind'):
     
     ## wind in m/s
     ## type must be 'high-wind' or 'low-wind'
-    
+
     if type == 'high-wind':
         xp = [3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8,8.5,9,9.5,10,10.5,11,11.5,12,12.5,13,25,25.5]
         fp = [0.002,0.015,0.036,0.060,0.090,0.124,0.164,0.212,0.269,0.333,0.406,0.489,0.581,0.681,0.781,0.873,0.943,0.982,0.996,0.999,1.000,1.000,0.000]
