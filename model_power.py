@@ -8,7 +8,7 @@ import dask.array as da
 station = 25 ## Burgos
 date_ini = '2020-06-01'
 date_end = '2020-09-01'
-level = 120
+level = 125
 type = 'high-wind'
 
 ## Each of the 3IFS runs (2.8km.4km,9km) is stored in one zarr
@@ -18,8 +18,8 @@ ds = xr.open_zarr('/work/bm1235/a270046/cycle2-sync/ddh_output/4km') ## xarray D
 city = list(zip(ds.station_name.values,ds.station.values,ds.lat.values,ds.lon.values))[station]
 
 ## it is best to select the station of interest first, and other limits in dimensions
-u_station = ds.u.sel(time = slice(date_ini,date_end), station = station).sel(level = level)
-v_station = ds.v.sel(time = slice(date_ini,date_end), station = station).sel(level = level)
+u_station = ds.u.sel(time = slice(date_ini,date_end), station = station, level = level)
+v_station = ds.v.sel(time = slice(date_ini,date_end), station = station, level = level)
 wind_station = np.sqrt(u_station**2 + v_station**2)
 
 ## Wind to Power
