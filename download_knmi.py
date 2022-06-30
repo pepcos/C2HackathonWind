@@ -141,6 +141,7 @@ async def main():
     for dataset_filename in filenames:
         # Create future for dataset file
         if "_2020" not in dataset_filename:
+            print("CONTINUEEEEEEED")
             continue
         future = loop.run_in_executor(
             executor,
